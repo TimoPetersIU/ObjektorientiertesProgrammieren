@@ -1,7 +1,5 @@
 package t.peters.vorlesung3.Bombe;
 
-import t.peters.parkautomat.Muenzwert;
-
 import java.util.Scanner;
 
 public class Game {
@@ -9,44 +7,37 @@ public class Game {
     private final int ANZAHL_LEBEN = 3;
     public Bombe bombe;
     public int leben;
+    public int punkte;
     public Scanner scanner;
 
+    // Konstruktor: Initialisiert das Spiel mit einer Bombe, Anzahl Leben und Scanner
     public Game() {
         this.bombe = new Bombe();
         this.leben = ANZAHL_LEBEN;
+        this.punkte = 0;
         this.scanner = new Scanner(System.in);
     }
 
-    public void start() {
-        String draht;
-        System.out.println("Du musst eine Bombe entschärfen!\nSchneide einen der Drähte durch:\nRot\nGrün\nBlau");
-        while (leben > 0) {
-            System.out.println("Wähle einen Draht:");
-            draht = scanner.nextLine();
-            if (isValid(draht)) {
-                if (bombe.playRound(draht)) {
-                    System.out.println("Du hast einen korrekten Draht durchgeschnitten");
-                } else {
-                    leben -= 1;
-                    System.out.println("Die Bombe ist explodiert! Du verlierst ein Leben\nDu hast noch " + leben + " übrig");
-                }
-            } else {
-                System.out.println("Ungültige Eingabe versuche es erneut");
-            }
-
-        }
-        System.out.println("Du hast keine Leben mehr damit ist das Spiel vorbei");
-        scanner.close();
-
+    public boolean isOver() {
+        return !(leben > 0);
     }
 
-    private boolean isValid(String value) {
-        for (Draht draht : Draht.values()) {
-            if (value.equalsIgnoreCase(draht.getFarbe())) {
-                return true;
-            }
+    public boolean playRound(String draht) {
+        this.bombe.generateRandomDraht();
+        if (!this.bombe.getDraht().getFarbe().equalsIgnoreCase(draht)) {
+            this.punkte++;
+            return true;
+        } else {
+            this.leben--;
+            return false;
         }
-        return false;
     }
 
+    public int getLeben() {
+        return leben;
+    }
+
+    public int getPunkte() {
+        return punkte;
+    }
 }
