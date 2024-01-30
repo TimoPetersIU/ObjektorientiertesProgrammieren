@@ -24,16 +24,8 @@ public class Kontakt {
 
     // Methode zum Entfernen einer Telefonnummer aus dem Kontakt
     public void removeTelefonnummer(String telefonnummer) {
-        // Durchlaufe die Liste der Telefonnummern
-        for (int i = 0; i < this.telefonnummern.size(); i++) {
-            String eintrag = this.telefonnummern.get(i);
-            // Überprüfe, ob der Eintrag der zu entfernenden Telefonnummer entspricht
-            if (eintrag != null && eintrag.equals(telefonnummer)) {
-                // Entferne die Telefonnummer aus der Liste
-                this.telefonnummern.remove(i);
-            }
-        }
-    }
+        telefonnummern.remove(telefonnummer);
+     }
 
     // Methode zum Abrufen des Namens des Kontakts
     public String getName() {
