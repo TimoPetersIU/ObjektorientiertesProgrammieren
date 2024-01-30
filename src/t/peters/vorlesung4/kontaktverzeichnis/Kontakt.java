@@ -6,10 +6,10 @@ import java.util.List;
 // Die Klasse Kontakt repräsentiert einen einzelnen Kontakt im Kontaktverzeichnis.
 public class Kontakt {
     // Name des Kontakts
-    public String name;
+    private String name;
 
     // Liste zur Speicherung der Telefonnummern des Kontakts
-    public List<String> telefonnummern;
+    private List<String> telefonnummern;
 
     // Konstruktor zur Initialisierung des Kontakts mit einem Namen und einer leeren Liste für Telefonnummern
     public Kontakt(String name) {

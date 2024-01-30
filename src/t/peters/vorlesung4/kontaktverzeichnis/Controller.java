@@ -6,7 +6,7 @@ import java.util.List;
 // Die Klasse Controller verwaltet das Kontaktverzeichnis und bietet Methoden für die Verwaltung von Kontakten.
 public class Controller {
     // Liste zur Speicherung der Kontakte
-    public List<Kontakt> kontaktList;
+    private List<Kontakt> kontaktList;
 
     // Konstruktor für die Initialisierung der Kontaktliste
     public Controller() {
