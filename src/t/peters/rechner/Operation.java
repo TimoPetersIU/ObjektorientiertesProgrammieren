@@ -11,7 +11,24 @@ enum Operation {
             System.out.println("Division durch Null nicht erlaubt!");
             return Double.NaN;
         }
-    });
+    }),
+
+    FAKULTAET("!", (a, b) -> {
+        if (a >= 0 && a == (int) a) {
+            int n = (int) a;
+            int result = 1;
+            for (int i = 1; i <= n; i++) {
+                result *= i;
+            }
+            return result;
+        } else {
+            System.out.println("Fakultät kann nur für nicht-negative ganze Zahlen berechnet werden!");
+            return Double.NaN;
+        }
+    }),
+    POTENZ("^", (a, b) -> Math.pow(a, b)),
+    PROZENT("%", (a, b) -> (a * b) / 100);
+
 
 
     private final ICalc calculator;
