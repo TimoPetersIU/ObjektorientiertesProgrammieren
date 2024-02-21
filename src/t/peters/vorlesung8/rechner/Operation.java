@@ -1,4 +1,4 @@
-package t.peters.rechner;
+package t.peters.vorlesung8.rechner;
 
 enum Operation {
     ADDITION("+", (a, b) -> a + b),

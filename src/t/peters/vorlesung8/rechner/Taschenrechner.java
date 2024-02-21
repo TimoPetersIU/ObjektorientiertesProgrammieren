@@ -1,4 +1,4 @@
-package t.peters.rechner;
+package t.peters.vorlesung8.rechner;
 
 public class Taschenrechner {
     public static void main(String[] args) {
